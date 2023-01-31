@@ -10,3 +10,6 @@ def load_image(name, colorkey=None):
         sys.exit()
     image = pygame.image.load(fullname)
     return image
+
+def myFunction():
+    print('Button Pressed')
