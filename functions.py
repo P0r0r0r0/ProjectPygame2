@@ -1,6 +1,7 @@
 import sys
 import os
 import pygame
+from GameBoard import Level
 
 
 def load_image(name, colorkey=None):
@@ -12,4 +13,4 @@ def load_image(name, colorkey=None):
     return image
 
 def myFunction():
-    print('Button Pressed')
+    Level()

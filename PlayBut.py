@@ -3,7 +3,6 @@ import sys
 import pygame
 
 
-
 class PlayBut:
     def __init__(self, x, y, width, height, screen, objects, buttonText='Play', onclickFunction=None):
         font = pygame.font.SysFont('Arial', 40)
@@ -14,6 +13,7 @@ class PlayBut:
         self.onclickFunction = onclickFunction
         self.alreadyPressed = False
         self.screen = screen
+        self.button = True
 
         self.fillColors = {'normal': '#ffffff', 'hover': '#666666', 'pressed': '#333333'}
 
@@ -32,10 +32,14 @@ class PlayBut:
                 if not self.alreadyPressed:
                     self.onclickFunction()
                     self.alreadyPressed = True
+                    self.button = False
+
+
             else:
                 self.alreadyPressed = False
         self.buttonSurface.blit(self.buttonSurf, [
             self.buttonRect.width / 2 - self.buttonSurf.get_rect().width / 2,
             self.buttonRect.height / 2 - self.buttonSurf.get_rect().height / 2
         ])
-        self.screen.blit(self.buttonSurface, self.buttonRect)
+        if self.button:
+            self.screen.blit(self.buttonSurface, self.buttonRect)
