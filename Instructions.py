@@ -6,18 +6,56 @@ class Instruction:
         game_size = width, height = 1000, 800
         self.screen = pygame.display.set_mode(game_size)
         self.screen.fill(pygame.Color(50, 50, 50))
-        intro_text = ["Управление", "",
-                      "Правила игры",
-                      "Если в правилах несколько строк,",
-                      "приходится выводить их построчно"]
+        center_column = ["Управление",
+                         "",
+                         "",
+                         "Движение влево",
+                         "Движение вправо",
+                         "Нижняя стойка",
+                         "Верхняя стойка"]
 
-        font = pygame.font.Font(None, 30)
-        text_coord = 50
-        for line in intro_text:
+        left_column = ["",
+                       "Левый игрок",
+                       "",
+                       "A",
+                       "D",
+                       "S",
+                       "W"]
+
+        right_column = ["",
+                        "Правый игрок",
+                        "",
+                        "<-",
+                        "->",
+                        "↓",
+                        "↑"]
+        font = pygame.font.Font(None, 50)
+        text_coord = 70
+        for line in left_column:
             string_rendered = font.render(line, 1, pygame.Color('white'))
             intro_rect = string_rendered.get_rect()
-            text_coord += 10
+            text_coord += 40
             intro_rect.top = text_coord
-            intro_rect.x = 10
+            intro_rect.x = 50
+            text_coord += intro_rect.height
+            self.screen.blit(string_rendered, intro_rect)
+
+        text_coord = 70
+        for line2 in center_column:
+            string_rendered = font.render(line2, 1, pygame.Color('white'))
+            intro_rect = string_rendered.get_rect()
+            text_coord += 40
+            intro_rect.top = text_coord
+            intro_rect.x = 350
+            text_coord += intro_rect.height
+            self.screen.blit(string_rendered, intro_rect)
+
+        text_coord = 70
+        for line3 in right_column:
+            string_rendered = font.render(line3, 1, pygame.Color('white'))
+            intro_rect = string_rendered.get_rect()
+            text_coord += 40
+            intro_rect.top = text_coord
+            intro_rect.x = 700
             text_coord += intro_rect.height
             self.screen.blit(string_rendered, intro_rect)
