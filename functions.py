@@ -2,6 +2,7 @@ import sys
 import os
 import pygame
 from GameBoard import Level
+from Instructions import Instruction
 
 
 def load_image(name, colorkey=None):
@@ -14,3 +15,6 @@ def load_image(name, colorkey=None):
 
 def myFunction():
     Level()
+
+def openInstruction():
+    Instruction()
