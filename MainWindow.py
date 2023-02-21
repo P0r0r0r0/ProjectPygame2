@@ -1,6 +1,6 @@
 import pygame
 from functions import load_image
-from functions import myFunction
+from myFunction  import myFunction
 from PlayBut import PlayBut
 from GameBoard import Level
 
