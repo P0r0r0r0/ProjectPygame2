@@ -27,8 +27,8 @@ class Instruction:
                         "",
                         "<-",
                         "->",
-                        "↓",
-                        "↑"]
+                        "v",
+                        "^"]
         font = pygame.font.Font(None, 50)
         text_coord = 70
         for line in left_column:
@@ -59,3 +59,15 @@ class Instruction:
             intro_rect.x = 700
             text_coord += intro_rect.height
             self.screen.blit(string_rendered, intro_rect)
+
+        string_rendered = font.render("|", 1, pygame.Color('white'))
+        intro_rect = string_rendered.get_rect()
+        intro_rect.top = 470
+        intro_rect.x = 705
+        self.screen.blit(string_rendered, intro_rect)
+
+        string_rendered = font.render("|", 1, pygame.Color('white'))
+        intro_rect = string_rendered.get_rect()
+        intro_rect.top = 560
+        intro_rect.x = 705
+        self.screen.blit(string_rendered, intro_rect)
