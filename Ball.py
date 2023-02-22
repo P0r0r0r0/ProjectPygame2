@@ -3,8 +3,8 @@ import pygame
 from functions import load_image
 
 
-class people_1(pygame.sprite.Sprite):
-    File_name = 'man.png'
+class Ball(pygame.sprite.Sprite):
+    File_name = 'voleyball_ball.png'
     STEP = 10
 
     def __init__(self, group, x_coord, y_coord):
