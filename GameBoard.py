@@ -38,3 +38,4 @@ while running:
 
 
 pygame.quit()
+        self.game_screen.fill(pygame.Color(150, 255, 150))

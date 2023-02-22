@@ -1,6 +1,9 @@
 import os
 import sys
 import pygame
+from GameBoard import Level
+from Instructions import Instruction
+
 
 
 
@@ -28,5 +31,9 @@ def load_image(name, colorkey=-1):
         image = image.convert_alpha()
     return image
 
+def myFunction():
+    Level()
 
+def openInstruction():
+    Instruction()
 
