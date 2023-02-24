@@ -3,9 +3,9 @@ import sys
 import pygame
 
 
-class PlayBut: #создание кнопок
+class PlayBut:  # создание кнопок
     def __init__(self, x, y, width, height, screen, objects, perem, buttonText, onclickFunction=None):
-        font = pygame.font.SysFont('Arial', 40) #их внешний вид
+        font = pygame.font.SysFont('Arial', 40)  # их внешний вид
         self.x = x
         self.y = y
         self.width = width
@@ -13,9 +13,10 @@ class PlayBut: #создание кнопок
         self.onclickFunction = onclickFunction
         self.alreadyPressed = False
         self.screen = screen
-        self.button = True
         self.perem = perem
         self.text = buttonText
+        self.onePress = True
+        self.button = True
 
         self.fillColors = {'normal': '#ffffff', 'hover': '#666666', 'pressed': '#333333'}
 
@@ -24,20 +25,18 @@ class PlayBut: #создание кнопок
         self.buttonSurf = font.render(self.text, True, (20, 20, 20))
         objects.append(self)
 
-    def process(self): #их поведение
+    def process(self):  # их поведение
         mousePos = pygame.mouse.get_pos()
         self.buttonSurface.fill(self.fillColors['normal'])
         if self.buttonRect.collidepoint(mousePos):
             self.buttonSurface.fill(self.fillColors['hover'])
             if pygame.mouse.get_pressed(num_buttons=3)[0]:
                 self.buttonSurface.fill(self.fillColors['pressed'])
-                if not self.alreadyPressed:
+                if self.onePress:
                     self.perem.append(self.text)
                     self.onclickFunction()
-                    self.alreadyPressed = True
-                    self.button = False
-
-
+                    if self.text != 'Home':
+                        self.button = False
             else:
                 self.alreadyPressed = False
         self.buttonSurface.blit(self.buttonSurf, [
