@@ -25,7 +25,14 @@ class Ball(pygame.sprite.Sprite):  # спрайт мяча
 
     def update(self, *args):  # его поведение
         if pygame.sprite.collide_mask(self, self.pep1):
+            self.flag2 = False
             self.flag1 = True
+            self.diff = self.rect.x
+            self.y = self.rect.y
+
+        elif pygame.sprite.collide_mask(self, self.pep2):
+            self.flag1 = False
+            self.flag2 = True
             self.diff = self.rect.x
             self.y = self.rect.y
 
@@ -41,3 +48,18 @@ class Ball(pygame.sprite.Sprite):  # спрайт мяча
                 self.rect.y = self.y + y
                 self.STEP = 6
             self.rect.x += self.STEP
+
+        if self.flag2:
+            if self.pep2.File_name == 'high2.png':
+                x = self.rect.x - self.diff + 260
+                y = int(((1 / 150) * x ** 2) - 450)
+                self.rect.y = self.y + y
+                self.STEP = -3
+            elif self.pep2.File_name == 'low2.png':
+                x = self.rect.x - self.diff + 442
+                y = int(((1 / 650) * x ** 2) - 300)
+                self.rect.y = self.y + y
+                self.STEP = -6
+            self.rect.x += self.STEP
+
+
