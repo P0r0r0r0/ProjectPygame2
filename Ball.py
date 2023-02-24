@@ -106,9 +106,9 @@ class Ball(pygame.sprite.Sprite):  # спрайт мяча
 
         elif self.flag3:
             if self.rect.x < 750:
-                self.goals[0] += 1
-            else:
                 self.goals[1] += 1
+            else:
+                self.goals[0] += 1
             self.flag3 = False
             new_round(self.pep1, self.pep2)
             self.STEP = 5

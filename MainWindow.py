@@ -19,6 +19,7 @@ if __name__ == '__main__':
     clock = pygame.time.Clock()
     objects = []
     home = []
+    game_over = []
     sp = []
     goals = [0, 0]
 
@@ -48,14 +49,13 @@ if __name__ == '__main__':
             for object in objects:
                 if not sp:
                     object.process()
-        if 'Home' in sp:
-            print(46078)
+        if 'Home' in sp or 'Return Home' in sp:
             sp.clear()
             goals = [0, 0]
             new_game(pep1, pep2, ball)
 
         if 'Play' in sp:
-            screen.fill(pygame.Color(150, 255, 150))
+            screen.fill(pygame.Color(100, 200, 100))
             font = pygame.font.Font(None, 150)
             text = f'{goals[0]}:{goals[1]}'
             string_rendered = font.render(text, 1, pygame.Color('red'))
@@ -70,6 +70,22 @@ if __name__ == '__main__':
             home[0].process()
         if 'Instruction' in sp:
             home[0].process()
+
+        if goals[0] == 5 or goals[1] == 5:
+            screen.fill(pygame.Color(200, 200, 100))
+            font = pygame.font.Font(None, 100)
+            if goals[0] == 5:
+                text = 'left won'
+            else:
+                text = 'right won'
+            string_rendered = font.render(text, 1, pygame.Color('white'))
+            intro_rect = string_rendered.get_rect()
+            intro_rect.top = 200
+            intro_rect.x = 500
+            screen.blit(string_rendered, intro_rect)
+            PlayBut(450, 300, 500, 200, screen, game_over, sp, 'Return Home', return_home)
+            game_over[0].process()
+
         pygame.display.flip()
         clock.tick(60)
     pygame.quit()
