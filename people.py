@@ -22,18 +22,18 @@ class people_1(pygame.sprite.Sprite):  # спрайт левого игрока
 
     def update(self, *args):  # его поведение
         if args and args[0].type == pygame.TEXTINPUT:
-            if args[0].text == 'a':
+            if args[0].text == 'a' or args[0].text == 'ф':
                 if not pygame.sprite.collide_mask(self, self.bord1):
                     self.rect.x -= self.STEP
-            elif args[0].text == 'd':
+            elif args[0].text == 'd' or args[0].text == 'в':
                 if not pygame.sprite.collide_mask(self, self.net):
                     self.rect.x += self.STEP
-            elif args[0].text == 'w':
+            elif args[0].text == 'w' or args[0].text == 'ц':
                 self.File_name = 'high.png'
                 self.image = load_image(self.File_name)
                 self.image = pygame.transform.scale(self.image, (350, 350))
                 self.mask = pygame.mask.from_surface(self.image)
-            elif args[0].text == 's':
+            elif args[0].text == 's' or args[0].text == 'ы':
                 self.File_name = 'low.png'
                 self.image = load_image(self.File_name)
                 self.image = pygame.transform.scale(self.image, (350, 350))

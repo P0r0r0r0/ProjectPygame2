@@ -27,9 +27,9 @@ if __name__ == '__main__':
     net = Net(group)
     bord1 = Border(borders, 1, 1, 1, 750)
     bord2 = Border(borders, 1499, 1, 1499, 750)
-    pep1 = people_1(group, 60, 450, bord1, net)
-    pep2 = people_2(group, 900, 450, bord2, net)
-    ball = Ball(group, 500, 600)
+    pep1 = people_1(group, 60, 470, bord1, net)
+    pep2 = people_2(group, 1100, 470, bord2, net)
+    ball = Ball(group, 500, 500, net, ground, pep1, pep2)
 
     PlayBut(30, 30, 400, 100, screen, objects, sp, 'Play', myFunction)
     PlayBut(30, 150, 400, 100, screen, objects, sp, 'Instruction', openInstruction)
