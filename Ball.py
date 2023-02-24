@@ -3,7 +3,7 @@ import pygame
 from functions import load_image
 
 
-class Ball(pygame.sprite.Sprite):
+class Ball(pygame.sprite.Sprite):  # спрайт мяча
     File_name = 'voleyball_ball.png'
     STEP = 10
 
@@ -17,13 +17,5 @@ class Ball(pygame.sprite.Sprite):
         self.rect.x = x_coord
         self.rect.y = y_coord
 
-    def update(self, *args):
-        if args and args[0].type == pygame.KEYDOWN:
-            if args[0].key == pygame.K_LEFT:
-                self.rect.x -= self.STEP
-            elif args[0].key == pygame.K_RIGHT:
-                self.rect.x += self.STEP
-            elif args[0].key == pygame.K_UP:
-                self.rect.y -= self.STEP
-            elif args[0].key == pygame.K_DOWN:
-                self.rect.y += self.STEP
+    def update(self, *args):  # его поведение
+        pass

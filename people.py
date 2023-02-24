@@ -3,7 +3,7 @@ import pygame
 from functions import load_image
 
 
-class people_1(pygame.sprite.Sprite):
+class people_1(pygame.sprite.Sprite): #спрайт левого игрока
     File_name = 'man.png'
     STEP = 10
 
@@ -17,13 +17,13 @@ class people_1(pygame.sprite.Sprite):
         self.rect.x = x_coord
         self.rect.y = y_coord
 
-    def update(self, *args):
+    def update(self, *args): #его поведение
         if args and args[0].type == pygame.KEYDOWN:
             if args[0].key == pygame.K_LEFT:
                 self.rect.x -= self.STEP
             elif args[0].key == pygame.K_RIGHT:
                 self.rect.x += self.STEP
             elif args[0].key == pygame.K_UP:
-                self.rect.y -= self.STEP
+                pass
             elif args[0].key == pygame.K_DOWN:
-                self.rect.y += self.STEP
+                pass

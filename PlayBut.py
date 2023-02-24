@@ -3,9 +3,9 @@ import sys
 import pygame
 
 
-class PlayBut:
+class PlayBut: #создание кнопок
     def __init__(self, x, y, width, height, screen, objects, perem, buttonText, onclickFunction=None):
-        font = pygame.font.SysFont('Arial', 40)
+        font = pygame.font.SysFont('Arial', 40) #их внешний вид
         self.x = x
         self.y = y
         self.width = width
@@ -24,7 +24,7 @@ class PlayBut:
         self.buttonSurf = font.render(self.text, True, (20, 20, 20))
         objects.append(self)
 
-    def process(self):
+    def process(self): #их поведение
         mousePos = pygame.mouse.get_pos()
         self.buttonSurface.fill(self.fillColors['normal'])
         if self.buttonRect.collidepoint(mousePos):

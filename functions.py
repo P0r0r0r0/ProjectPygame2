@@ -4,7 +4,8 @@ import pygame
 from GameBoard import Level
 from Instructions import Instruction
 
-def load_image(name):
+
+def load_image(name):  # функция для загрузки картинок
     fullname = os.path.join('data', name)
 
     if not os.path.isfile(fullname):
@@ -13,8 +14,10 @@ def load_image(name):
     image = pygame.image.load(fullname)
     return image
 
-def myFunction():
+
+def myFunction():  # функция для открытия поля для игры
     Level()
 
-def openInstruction():
+
+def openInstruction():  # функция для открытия инструкции
     Instruction()

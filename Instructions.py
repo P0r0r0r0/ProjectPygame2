@@ -3,10 +3,10 @@ import pygame
 
 class Instruction:
     def __init__(self):
-        game_size = width, height = 1000, 800
+        game_size = width, height = 1000, 800  # заготовка поля
         self.screen = pygame.display.set_mode(game_size)
         self.screen.fill(pygame.Color(50, 50, 50))
-        center_column = ["Управление",
+        center_column = ["Управление",  # текст инструкций
                          "",
                          "",
                          "Движение влево",
@@ -31,7 +31,7 @@ class Instruction:
                         "^"]
         font = pygame.font.Font(None, 50)
         text_coord = 70
-        for line in left_column:
+        for line in left_column:  # размещение текста
             string_rendered = font.render(line, 1, pygame.Color('white'))
             intro_rect = string_rendered.get_rect()
             text_coord += 40
