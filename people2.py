@@ -3,13 +3,12 @@ import pygame
 from functions import load_image
 
 
-class people_1(pygame.sprite.Sprite):  # спрайт левого игрока
+class people_2(pygame.sprite.Sprite):  # спрайт правого игрока
     STEP = 10
 
-    def __init__(self, group, x_coord, y_coord, bord1, net):
+    def __init__(self, group, x_coord, y_coord, bord2, net):
         super().__init__(group)
-        self.index = 0
-        self.File_name = 'low.png'
+        self.File_name = 'low2.png'
         self.image = load_image(self.File_name)
         self.image = pygame.transform.scale(self.image, (350, 350))
 
@@ -17,24 +16,24 @@ class people_1(pygame.sprite.Sprite):  # спрайт левого игрока
         self.rect.x = x_coord
         self.rect.y = y_coord
         self.mask = pygame.mask.from_surface(self.image)
-        self.bord1 = bord1
+        self.bord2 = bord2
         self.net = net
 
     def update(self, *args):  # его поведение
-        if args and args[0].type == pygame.TEXTINPUT:
-            if args[0].text == 'a':
-                if not pygame.sprite.collide_mask(self, self.bord1):
-                    self.rect.x -= self.STEP
-            elif args[0].text == 'd':
+        if args and args[0].type == pygame.KEYDOWN:
+            if args[0].key == pygame.K_LEFT:
                 if not pygame.sprite.collide_mask(self, self.net):
+                    self.rect.x -= self.STEP
+            elif args[0].key == pygame.K_RIGHT:
+                if not pygame.sprite.collide_mask(self, self.bord2):
                     self.rect.x += self.STEP
-            elif args[0].text == 'w':
-                self.File_name = 'high.png'
+            elif args[0].key == pygame.K_UP:
+                self.File_name = 'high2.png'
                 self.image = load_image(self.File_name)
                 self.image = pygame.transform.scale(self.image, (350, 350))
                 self.mask = pygame.mask.from_surface(self.image)
-            elif args[0].text == 's':
-                self.File_name = 'low.png'
+            elif args[0].key == pygame.K_DOWN:
+                self.File_name = 'low2.png'
                 self.image = load_image(self.File_name)
                 self.image = pygame.transform.scale(self.image, (350, 350))
                 self.mask = pygame.mask.from_surface(self.image)

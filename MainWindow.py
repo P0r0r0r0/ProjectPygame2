@@ -8,6 +8,8 @@ from people import people_1
 from Ball import Ball
 from Ground import Ground
 from Net import Net
+from people2 import people_2
+from stenki import Border
 
 if __name__ == '__main__':
     pygame.init()
@@ -19,12 +21,15 @@ if __name__ == '__main__':
 
     running = True
     group = pygame.sprite.Group()
+    borders = pygame.sprite.Group()
     clock = pygame.time.Clock()
-    people_1(group, 60, 450)
-    Ball(group, 500, 600)
-    Ground(group)
-    Net(group)
-
+    ground = Ground(group)
+    net = Net(group)
+    bord1 = Border(borders, 1, 1, 1, 750)
+    bord2 = Border(borders, 1499, 1, 1499, 750)
+    pep1 = people_1(group, 60, 450, bord1, net)
+    pep2 = people_2(group, 900, 450, bord2, net)
+    ball = Ball(group, 500, 600)
 
     PlayBut(30, 30, 400, 100, screen, objects, sp, 'Play', myFunction)
     PlayBut(30, 150, 400, 100, screen, objects, sp, 'Instruction', openInstruction)
@@ -44,9 +49,10 @@ if __name__ == '__main__':
                     object.process()
         if 'Play' in sp:
             screen.fill(pygame.Color(150, 255, 150))
-            group.draw(screen)
             group.update(event)
-
+            group.draw(screen)
+            borders.update(event)
+            borders.draw(screen)
         pygame.display.flip()
         clock.tick(60)
 
