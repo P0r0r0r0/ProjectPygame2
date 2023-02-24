@@ -11,7 +11,7 @@ class people_1(pygame.sprite.Sprite): #спрайт левого игрока
         super().__init__(group)
 
         self.image = load_image(self.File_name)
-        self.image = pygame.transform.scale(self.image, (400, 400))
+        self.image = pygame.transform.scale(self.image, (300, 300))
 
         self.rect = self.image.get_rect()
         self.rect.x = x_coord

@@ -5,6 +5,9 @@ from functions import openInstruction
 from PlayBut import PlayBut
 from GameBoard import Level
 from people import people_1
+from Ball import Ball
+from Ground import Ground
+from Net import Net
 
 if __name__ == '__main__':
     pygame.init()
@@ -17,7 +20,11 @@ if __name__ == '__main__':
     running = True
     group = pygame.sprite.Group()
     clock = pygame.time.Clock()
-    people_1(group, 0, 0)
+    people_1(group, 60, 450)
+    Ball(group, 500, 600)
+    Ground(group)
+    Net(group)
+
 
     PlayBut(30, 30, 400, 100, screen, objects, sp, 'Play', myFunction)
     PlayBut(30, 150, 400, 100, screen, objects, sp, 'Instruction', openInstruction)
