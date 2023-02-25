@@ -51,7 +51,8 @@ if __name__ == '__main__':
                     object.process()
         if 'Home' in sp or 'Return Home' in sp:
             sp.clear()
-            goals = [0, 0]
+            goals[0] = 0
+            goals[1] = 0
             new_game(pep1, pep2, ball)
 
         if 'Play' in sp:
