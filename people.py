@@ -5,7 +5,14 @@ from functions import load_image
 
 class people_1(pygame.sprite.Sprite):  # спрайт левого игрока
     STEP = 10
+    """
+    аргументы:
+    group - pygame.sprite.Group
+    x_coord, y_coord - координаты (int)
+    bord1 - стенка (Border)
+    net - сетка (Net)
 
+    """
     def __init__(self, group, x_coord, y_coord, bord1, net):
         super().__init__(group)
         self.index = 0
@@ -20,7 +27,7 @@ class people_1(pygame.sprite.Sprite):  # спрайт левого игрока
         self.bord1 = bord1
         self.net = net
 
-    def update(self, *args):  # его поведение
+    def update(self, *args):  # обработка нажатий клавиш и движений
         if args and args[0].type == pygame.TEXTINPUT:
             if args[0].text == 'a' or args[0].text == 'ф':
                 if not pygame.sprite.collide_mask(self, self.bord1):

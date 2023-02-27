@@ -2,7 +2,9 @@ import pygame
 
 
 class Net(pygame.sprite.Sprite):  # спрайт сетки
-
+    """аргументы:
+         group - pygame.sprite.Group
+         """
     def __init__(self, group):
         super().__init__(group)
 

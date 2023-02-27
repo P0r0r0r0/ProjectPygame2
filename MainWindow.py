@@ -16,26 +16,30 @@ if __name__ == '__main__':
     pygame.init()
     size = width, height = 1000, 800
     screen = pygame.display.set_mode(size)
+    """Задаем параметры окна"""
     clock = pygame.time.Clock()
     objects = []
     home = []
     game_over = []
     sp = []
-    goals = [0, 0]
+    goals = [0, 0]  # счетчик голов
 
     running = True
     group = pygame.sprite.Group()
-    borders = pygame.sprite.Group()
-    ground = Ground(group)
-    net = Net(group)
+    borders = pygame.sprite.Group()  # границы поля
+    ground = Ground(group)  # земля
+    net = Net(group)  # сетка
+    """Создаются две границы поля, два человечка и мяч"""
     bord1 = Border(borders, 1, 1, 1, 750)
     bord2 = Border(borders, 1499, 1, 1499, 750)
     pep1 = people_1(group, 60, 470, bord1, net)
     pep2 = people_2(group, 1100, 470, bord2, net)
     ball = Ball(group, random.choice([100, 1000, 500, 1300]), 200, goals, net, ground, pep1, pep2)
-    PlayBut(30, 30, 200, 50, screen, home, sp, 'Home', return_home)
+    PlayBut(30, 30, 200, 50, screen, home, sp, 'Home', return_home)  # кнопка 'Home'
+
 
     while running:
+        """Обработка нажатий кнопок и закрытия приложения"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
@@ -71,7 +75,7 @@ if __name__ == '__main__':
             home[0].process()
         if 'Instruction' in sp:
             home[0].process()
-
+        """Определяет выиграл ли кто либо и если да, то выводит соответствующее сообщение и завершает игру"""
         if goals[0] == 5 or goals[1] == 5:
             screen.fill(pygame.Color(200, 200, 100))
             font = pygame.font.Font(None, 100)

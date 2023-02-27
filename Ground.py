@@ -3,6 +3,10 @@ import pygame
 
 class Ground(pygame.sprite.Sprite):  # спрайт земли
 
+    """
+    аргументы:
+    group - pygame.sprite.Group
+     """
     def __init__(self, group):
         super().__init__(group)
 

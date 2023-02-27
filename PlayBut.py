@@ -4,6 +4,16 @@ import pygame
 
 
 class PlayBut:  # создание кнопок
+    """
+    аргументы:
+    x, y - координаты (int)
+    width, height - размеры (int)
+    screen - экран (screen)
+    objects - список объектов (List)
+    perem - спикок (List)
+    buttonText - текст кнопки (str)
+    onclickFunction - функция кнопки
+    """
     def __init__(self, x, y, width, height, screen, objects, perem, buttonText, onclickFunction=None):
         font = pygame.font.SysFont('Arial', 40)  # их внешний вид
         self.x = x

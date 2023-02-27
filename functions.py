@@ -24,20 +24,20 @@ def openInstruction():  # функция для открытия инструк�
     Instruction()
 
 
-def new_round(pep1, pep2):
+def new_round(pep1, pep2):  # функция для начала нового раунда
     pep1.rect.x = 60
     pep1.rect.y = 470
     pep2.rect.x = 1100
     pep2.rect.y = 470
 
 
-def return_home():
+def return_home():  # функция для возврата в главное меню
     size = width, height = 1000, 800
     screen = pygame.display.set_mode(size)
     screen.fill(pygame.Color(250, 170, 80))
 
 
-def new_game(pep1, pep2, ball):
+def new_game(pep1, pep2, ball):  # функция для начала новой игры
     pep1.rect.x = 60
     pep1.rect.y = 470
     pep2.rect.x = 1100
